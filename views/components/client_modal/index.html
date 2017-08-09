@@ -1,0 +1,56 @@
+<div class="modal fade" id="client_modal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">×</span></button>
+        <h4 class="modal-title">Cliente: </h4>
+      </div>
+      <form name="frmClient" ng-submit="save( clientSel, frmClient )" novalidate>
+        <div class="modal-body">
+          <div class="form-group">
+            <label>Nombre</label>
+            <input type="text" class="form-control" ng-model="clientSel.nombre" placeholder="Nombre" required>
+          </div>
+          <div class="form-group">
+            <label>Correo</label>
+            <input type="email" class="form-control" ng-model="clientSel.correo" placeholder="Correo" required>
+          </div>
+          <div class="form-group">
+            <label>Dirección</label>
+            <textarea type="text" class="form-control" ng-model="clientSel.direccion" placeholder="Dirección" ></textarea>
+          </div>
+          <div class="form-group">
+            <label>Pais</label>
+            <select type="text" class="form-control" ng-model="clientSel.pais" placeholder="Pais" >
+              <option value="Costa Rica">Costa Rica</option>
+              <option value="España">España</option>
+              <option value="Colombia">Colombia</option>
+              <option value="Peru">Peru</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Telefono 1</label>
+            <input type="text" class="form-control" ng-model="clientSel.telefono1" placeholder="Telefono 1" >
+          </div>
+          <div class="form-group">
+            <label>Telefono 2</label>
+            <input type="text" class="form-control" ng-model="clientSel.telefono2" placeholder="Telefono 2" >
+          </div>
+          <div class="form-group">
+            <label>Zip</label>
+            <input type="text" class="form-control" ng-model="clientSel.zip" placeholder="Zip" >
+          </div>
+        </div>
+        
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
+          <button type="submit" class="btn btn-primary"><i class="fa fa-save"></i> Guardar cambios</button>
+        </div>
+      </form>
+    </div>
+    <!-- /.modal-content -->
+  </div>
+  <!-- /.modal-dialog -->
+</div>

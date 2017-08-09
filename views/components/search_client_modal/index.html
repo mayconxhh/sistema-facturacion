@@ -1,0 +1,34 @@
+<div class="modal fade" id="modal_search_client">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">x</span>
+        </button>
+        <h4 class="modal-title">Cliente: </h4>
+      </div>
+      <div class="modal-body">
+        <div ng-show="clients.length > 7">
+          <input type="text" ng-model="nombre" class="form-control" placeholder="Filtrar...">
+          <br>
+        </div>
+        <table class="table table-striped">
+          <tr>
+            <th>ID</th>
+            <th>Cliente</th>
+            <th>Seleecionar</th>
+          </tr>
+          <tr ng-repeat="client in clients | filter: nombre">
+            <td>{{ client.id }}</td>
+            <td>{{ client.nombre }}</td>
+            <td>
+              <a ng-click="client_sel( client )" class="btn btn-info">
+                <i class="fa fa-check"></i>
+              </a>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

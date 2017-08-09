@@ -1,0 +1,68 @@
+<ol class="breadcrumb">
+  <li><a href="{{url}}"><i class="fa fa-dashboard"></i> Dashboard</a></li>
+  <li class="active">Facturas</li>
+</ol>
+<div class="row">
+  <div class="col-xs-12">
+    <div class="panel">
+      <!-- /.box-header -->
+      <div class="panel-body">
+        <form name="frmSearch" ng-submit="searchFactura(search)" novalidate>
+          <div class="form-group">
+            <label>Buscar factura</label>
+            <input type="text" class="form-control" name="name" placeholder="Codigo o Nombre" ng-model="search" required>
+          </div>
+          <div class="form-group">
+            <button type="submit" class="btn btn-primary"><i class="fa fa-search" aria-hidden="true"></i> Buscar</button>
+            <button type="submit" class="btn btn-warning" ng-if="removeSearch" ng-click="removeFilter(frmSearch)"><i class="fa fa-times"></i> Eliminar busqueda</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-12">
+    <div class="box">
+      <div class="box-header with-border">
+        <h3 class="box-title">Clientes</h3>
+        <div class="box-tools">
+          <div class="input-group">
+            <a class="btn btn-primary" href="{{url}}facturas/nueva"><i class="fa fa-plus"></i> Agregar Factura</a>
+          </div>
+        </div>
+      </div>
+      <!-- /.box-header -->
+      <div class="box-body">
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Cliente</th>
+              <th>Monto</th>
+              <th>Fecha</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr ng-repeat="factura in facturas.facturas">
+              <td>{{ factura.numero_factura }}</td>
+              <td>{{ factura.nombre_cliente }}</td>
+              <td>{{ factura.monto }}</td>
+              <td>{{ factura.fecha_solicitado }}</td>
+              <td><a href="{{url}}facturas/detalle/{{factura.numero_factura}}" class="btn btn-info btn-sm">Ver detalles</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <!-- /.box-body -->
+      <div class="box-footer clearfix" ng-if="facturas.all_pages !== undefined">
+        <ul class="pagination pagination-sm no-margin pull-right">
+          <li><a href="" ng-click="moveTo(1)">«</a></li>
+          <li ng-repeat="page in facturas.pages" ng-class="{ 'active': facturas.pag_current === page }"><a href="" ng-click="moveTo(page)">{{ page }}</a></li>
+          <li><a href="" ng-click="moveTo(facturas.all_pages)">»</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

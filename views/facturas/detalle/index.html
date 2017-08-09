@@ -1,0 +1,114 @@
+<ol class="breadcrumb">
+  <li><a href="{{url}}"><i class="fa fa-dashboard"></i> Dashboard</a></li>
+  <li class="active">Facturas</li>
+  <li class="active">Detalle</li>
+</ol>
+
+<section class="invoice" id="new_facture">
+  <!-- title row -->
+  <div class="row">
+    <div class="col-xs-12">
+      <h2 class="page-header">
+        <i class="fa fa-globe"></i> {{ config.name }} - {{ config.name | initials:0:3 | uppercase }}
+        <small class="pull-right">Fecha: {{ factura.requested_date | date:'dd-MM-yyyy' }}</small>
+      </h2>
+    </div>
+    <!-- /.col -->
+  </div>
+  <!-- info row -->
+  <div class="row invoice-info">
+    <div class="col-sm-4 invoice-col">
+      De
+      <address>
+        <strong>{{ config.name }} - {{ config.name | initials:0:3 | uppercase }}</strong><br>
+        {{ config.direccion }}<br>
+        Telefono: {{ config.telefono }}<br>
+        Email: {{ config.correo }}
+      </address>
+    </div>
+    <!-- /.col -->
+    <div class="col-sm-4 invoice-col">
+      Para
+      <address>
+        <strong>{{ factura.client.nombre }}</strong><br>
+        {{ factura.client.direccion }}<br>
+        San Francisco, CA 94107<br>
+        Telefono: {{ factura.client.telefono1 }}<br>
+        Email: {{ factura.client.correo }}
+      </address>
+    </div>
+    <!-- /.col -->
+    <div class="col-sm-4 invoice-col">
+      <b>Factura ID: {{ factura.number_factura }}</b><br>
+    </div>
+    <!-- /.col -->
+  </div>
+  <!-- /.row -->
+
+  <!-- Table row -->
+  <div class="row">
+    <div class="col-xs-12 table-responsive">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Codigo</th>
+            <th>Cantidad</th>
+            <th>Precio</th>
+            <th>Producto</th>
+            <th>Subtotal</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="detail in factura.detail">
+            <td>{{ detail.producto_id }}</td>
+            <td>{{ detail.cantidad }}</td>
+            <td>{{ detail.precio_unitario | currency }}</td>
+            <td>{{ detail.producto.producto }}</td>
+            <td>{{ detail.precio_unitario * detail.cantidad | currency }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <!-- /.col -->
+  </div>
+  <!-- /.row -->
+
+  <div class="row">
+    <!-- accepted payments column -->
+    <div class="col-xs-6">
+	  <p ng-model="factura.comment"></p>
+    </div>
+    <!-- /.col -->
+    <div class="col-xs-6">
+      <p class="lead">Detalle del Pago</p>
+
+      <div class="table-responsive">
+        <table class="table">
+          <tbody><tr>
+            <th style="width:50%">Subtotal:</th>
+            <td>{{ factura.amount | currency }}</td>
+          </tr>
+          <tr>
+            <th>Impuesto(12%):</th>
+            <td>{{ factura.tax | currency }}</td>
+          </tr>
+          <tr>
+            <th>Total</th>
+            <td>{{ factura.net_amount | currency }}</td>
+          </tr>
+        </tbody></table>
+      </div>
+    </div>
+    <!-- /.col -->
+  </div>
+  <!-- /.row -->
+
+  <!-- this row will not appear when printing -->
+  <div class="row no-print">
+    <div class="col-xs-12">
+      <button type="button" ng-click="print_factura()" class="btn btn-primary pull-right" style="margin-right: 5px;">
+        <i class="fa fa-download"></i> Imprimir Factura
+      </button>
+    </div>
+  </div>
+</section>

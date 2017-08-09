@@ -1,0 +1,12 @@
+{
+	"anio": 2017,
+	"name": "facturación",
+	"version": "1.0.0",
+	"author": "Maycon Huayapa </mayconxhh>",
+	"url": "https://mayconxhh.herokuapp.com/",
+	"empresa": "Mayconxhh",
+	"correo": "mayconxhh@gmail.com",
+	"telefono": "(123) 123-5432",
+	"direccion": "Avenida 123, 800mts sur de la calle ABC",
+	"ISV": 0.12
+}
