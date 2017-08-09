@@ -28,7 +28,7 @@
         <h3 class="box-title">Clientes</h3>
         <div class="box-tools">
           <div class="input-group">
-            <a class="btn btn-primary" href="{{url}}facturas/nueva"><i class="fa fa-plus"></i> Agregar Factura</a>
+            <a class="btn btn-primary" href="{{url}}/facturas/nueva"><i class="fa fa-plus"></i> Agregar Factura</a>
           </div>
         </div>
       </div>
@@ -50,7 +50,7 @@
               <td>{{ factura.nombre_cliente }}</td>
               <td>{{ factura.monto }}</td>
               <td>{{ factura.fecha_solicitado }}</td>
-              <td><a href="{{url}}facturas/detalle/{{factura.numero_factura}}" class="btn btn-info btn-sm">Ver detalles</a></td>
+              <td><a href="{{url}}/facturas/detalle/{{factura.numero_factura}}" class="btn btn-info btn-sm">Ver detalles</a></td>
             </tr>
           </tbody>
         </table>

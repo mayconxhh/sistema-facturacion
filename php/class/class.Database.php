@@ -12,10 +12,10 @@
 class Database{
 
 	private $_connection;
-	private $_host = "localhost";
-	private $_user = "facturacion_user";
-	private $_pass = "123456";
-	private $_db   = "facturacion_db";
+	private $_host = "sql301.unaux.com";
+	private $_user = "unaux_20513946";
+	private $_pass = "huayapa123";
+	private $_db   = "unaux_20513946_facturacion_db";
 
 
 	// Almacenar una unica instancia
