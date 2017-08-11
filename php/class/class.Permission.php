@@ -5,10 +5,10 @@
   class VariableData {
 
     private $_connection;
-    private $_host = "sql301.unaux.com";
-    private $_user = "unaux_20513946";
-    private $_pass = "huayapa123";
-    private $_db   = "unaux_20513946_facturacion_db";
+    private $_host = "";
+    private $_user = "";
+    private $_pass = "";
+    private $_db   = "";
 
     // Almacenar una unica instancia
     private static $_instancia;
